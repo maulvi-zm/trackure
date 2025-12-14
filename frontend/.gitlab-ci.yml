@@ -1,0 +1,31 @@
+stages:
+  - deploy
+
+variables:
+  MAIN_DEPLOY_DIR: "/var/www/ppl/production/frontend"
+  DEVELOP_DEPLOY_DIR: "/var/www/ppl/development/frontend"
+
+deploy_frontend:
+  stage: deploy
+  tags:
+    - deploy
+    - production
+    - develop
+  script:
+    - |
+      if [ "$CI_COMMIT_BRANCH" = "main" ]; then
+        export DEPLOY_DIR=$MAIN_DEPLOY_DIR
+      elif [ "$CI_COMMIT_BRANCH" = "develop" ]; then
+        export DEPLOY_DIR=$DEVELOP_DEPLOY_DIR
+      else
+        echo "Branch not configured for deployment"; exit 1
+      fi
+    - echo "Deploying to $DEPLOY_DIR"
+    - cd $DEPLOY_DIR
+    - git pull https://$CI_DEPLOY_USER:$CI_DEPLOY_PASSWORD@gitlab.informatika.org/if3250/if3250_k03_g06_sts-01-fe.git $CI_COMMIT_BRANCH
+    - bun install
+    - bun run build
+    - /usr/local/bin/reload-nginx.sh
+  only:
+    - main
+    - develop
