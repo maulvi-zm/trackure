@@ -1,0 +1,39 @@
+stages:
+  - deploy
+
+variables:
+  MAIN_DEPLOY_DIR: "/var/www/ppl/production/backend"
+  DEVELOP_DEPLOY_DIR: "/var/www/ppl/development/backend"
+  REPO_URL: "https://$CI_DEPLOY_USER:$CI_DEPLOY_PASSWORD@gitlab.informatika.org/if3250/if3250_k03_g06_sts-01-be.git"
+
+deploy_develop:
+  stage: deploy
+  tags:
+    - deploy
+    - develop
+  script:
+    - echo "Deploying to $DEVELOP_DEPLOY_DIR"
+    - cd $DEVELOP_DEPLOY_DIR
+    - git checkout -- bun.lock
+    - git pull $REPO_URL $CI_COMMIT_BRANCH
+    - source ~/.bash_profile
+    - bun install
+    - bunx pm2 reload trackure-backend-dev
+  only:
+    - develop
+
+deploy_production:
+  stage: deploy
+  tags:
+    - deploy
+    - production
+  script:
+    - echo "Deploying to $MAIN_DEPLOY_DIR"
+    - cd $MAIN_DEPLOY_DIR
+    - source ~/.bash_profile
+    - git checkout -- bun.lock
+    - git pull $REPO_URL $CI_COMMIT_BRANCH
+    - bun install
+    - bunx pm2 reload trackure-backend-prod
+  only:
+    - main
