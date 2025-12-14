@@ -1,0 +1,9 @@
+<svg width="100" height="180" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="99" height="99" rx="49.5" stroke="#5188EE"/>
+<path d="M56 30V50C56 52.2 54.2 54 52 54H30V38C30 33.58 33.58 30 38 30H56Z" stroke="#5188EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M70 54V60C70 63.32 67.32 66 64 66H62C62 63.8 60.2 62 58 62C55.8 62 54 63.8 54 66H46C46 63.8 44.2 62 42 62C39.8 62 38 63.8 38 66H36C32.68 66 30 63.32 30 60V54H52C54.2 54 56 52.2 56 50V36H59.68C61.12 36 62.44 36.78 63.16 38.02L66.58 44H64C62.9 44 62 44.9 62 46V52C62 53.1 62.9 54 64 54H70Z" stroke="#5188EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42 70C44.2091 70 46 68.2091 46 66C46 63.7909 44.2091 62 42 62C39.7909 62 38 63.7909 38 66C38 68.2091 39.7909 70 42 70Z" stroke="#5188EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M58 70C60.2091 70 62 68.2091 62 66C62 63.7909 60.2091 62 58 62C55.7909 62 54 63.7909 54 66C54 68.2091 55.7909 70 58 70Z" stroke="#5188EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M70 50V54H64C62.9 54 62 53.1 62 52V46C62 44.9 62.9 44 64 44H66.58L70 50Z" stroke="#5188EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="49.5" y="179.5" width="79" height="1" transform="rotate(-90 49.5 179.5)" stroke="#5188EE" stroke-opacity="0.5" stroke-dasharray="10 10"/>
+</svg>
